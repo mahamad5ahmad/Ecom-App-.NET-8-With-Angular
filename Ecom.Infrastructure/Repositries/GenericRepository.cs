@@ -61,7 +61,9 @@ namespace Ecom.Infrastructure.Repositries
             {
                 query = query.Include(include);
             }
-            return await _context.Set<T>().FindAsync(id);
+            var entity = await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
+
+            return entity;
         }
 
         public async Task UpdateAsync(T entity)

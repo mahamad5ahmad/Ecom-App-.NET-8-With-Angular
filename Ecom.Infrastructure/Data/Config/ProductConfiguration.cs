@@ -15,12 +15,12 @@ namespace Ecom.Infrastructure.Data.Config
         {
             builder.Property(p => p.Name).IsRequired().HasMaxLength(100);
             builder.Property(p => p.Description).IsRequired();
-            builder.Property(p => p.Price).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.NewPrice).HasColumnType("decimal(18,2)");
             builder.HasData(new Product{
                 Id = 1,
                 Name = "test",
                 Description = "test",
-                Price = 100.00m,
+                NewPrice = 100.00m,
                 CategoryId = 1
             });
            
